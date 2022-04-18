@@ -1,29 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
-import { Link } from 'react-router-dom';
-import logo from '../logo.svg';
+import React from 'react';
+import { Navbar, Dropdown} from 'react-bootstrap';
+import logo from '../assets/gec.jpeg'
 import './Header.css';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faEthereum,
-    faGratipay
-  } from "@fortawesome/free-brands-svg-icons";
 
-function Header() {
+
+function Header(props) {
   return (
     <>
       <div className='navbar'>
         <div className="header">
-            {/* <Link to='/home'>
-                    <FontAwesomeIcon icon={faGratipay} size="3x" />
-            </Link> */}
-            <h2>GEC</h2>
+          <Navbar.Brand href="#home">
+                    <img
+                        alt=""
+                        src={logo}
+                        width="60"
+                        height="60"
+                        className="d-inline-block align-top"
+                    />{' '}
+          </Navbar.Brand>
         </div>
         <div className='navbar-container'>
-              <Link to='/sign-up'>
-                <Button buttonStyle='btn--outline'>SIGN UP</Button>
-              </Link>
+          <Dropdown>
+                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                          Login As
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                          <Dropdown.Item href="#" onClick={() => props.setModalShow(true)}>NGO</Dropdown.Item>
+                          <Dropdown.Item href="#">Donor</Dropdown.Item>
+                      </Dropdown.Menu>
+            </Dropdown>
         </div>
+
       </div>
     </>
   );

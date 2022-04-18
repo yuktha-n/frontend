@@ -1,21 +1,12 @@
-import React from 'react';
-
-import './App.css';
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Components/Pages/Home';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-//import SignUp from './components/pages/SignUp';
-//          <Route path='/sign-up' component={SignUp} />
 
 function App() {
   return (
-    <>
-      <Router>
-        <Switch>
-          <Route path='/' exact component={Home} />
-
-        </Switch>
-      </Router>
-    </>
+    <div className="App">
+        <Home></Home>
+    </div>
   );
 }
 
